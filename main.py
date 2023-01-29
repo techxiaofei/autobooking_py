@@ -5,6 +5,7 @@ from email.header import Header
 
 class Book:
     def __init__(self) -> None:
+        '''headers和cookies从 https://curlconvert.trumanwl.com/python 工具转换'''
         self.cookies = {
             '_ga': 'GA1.2.1721389846.1649773321',
             'token': 'Bearer%20eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJCQkRDIiwiTlJJQyI6IlM4OTU1OTYzRCIsImV4cCI6MTY3Mzk3MTY2Nn0.-zoev2Cv5rMM7ZTkOh1o5x-0SmSxv6i4SIz-l8YXtOI',
@@ -31,6 +32,7 @@ class Book:
         }
     
     def query(self):
+        '''查询接口'''
         json_data = {
             'subStageSubNo': None,
             'insInstructorId': '',
@@ -40,6 +42,7 @@ class Book:
         return response
     
     def book(self, slotList):
+        '''预订接口'''
         json_data = {
             'courseType': '123',
             'insInstructorId': '',
@@ -50,6 +53,7 @@ class Book:
         return response
     
     def getSlotList(self, response):
+        '''根据返回结果过滤你的条件'''
         slotList = []
         
         if response == None or response.content == None:
